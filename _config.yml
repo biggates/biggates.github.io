@@ -1,3 +1,17 @@
+title: biggates 难得更新的小站
+
+timezone: Asia/Shanghai
+
 highlighter: pygments
-kramdown:
-  input: GFM
+
+markdown: redcarpet
+
+redcarpet:
+  extensions:
+    - fenced_code_blocks
+    - no intra_emphasis
+    - strikethrough
+    - autolink
+    - tables
+  
+encoding: utf-8
