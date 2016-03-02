@@ -3,15 +3,11 @@ title: biggates 难得更新的小站
 timezone: Asia/Shanghai
 
 highlighter: pygments
+highlighter: rouge
 
-markdown: redcarpet
+markdown: kramdown
 
-redcarpet:
-  extensions:
-    - fenced_code_blocks
-    - no intra_emphasis
-    - strikethrough
-    - autolink
-    - tables
+kramdown:
+  input: GFM
   
 encoding: utf-8
