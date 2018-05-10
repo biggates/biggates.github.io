@@ -11,3 +11,5 @@ kramdown:
   input: GFM
   
 encoding: utf-8
+
+theme: jekyll-theme-slate
