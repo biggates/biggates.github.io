@@ -69,6 +69,8 @@ INFO  - View the results by opening .\generated\index.html
 
 ```
 
+生成的效果还是比较美观的，其中一些 ER 图基本上可以直接拿来做插图用。可以在 [schemaspy sample](http://schemaspy.org/sample/index.html) 查看示意。
+
 ## 提供更多 SchemaMeta 信息
 
 按照 [SchemaMeta](https://schemaspy.readthedocs.io/en/latest/configuration.html#schemameta) 规定的格式编写 xml ，通过 `schemaspy.meta=文件名` 传入即可。

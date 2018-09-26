@@ -2,14 +2,14 @@ title: biggates 难得更新的小站
 
 timezone: Asia/Shanghai
 
-highlighter: pygments
-highlighter: rouge
-
-markdown: kramdown
-
+github: [metadata]
+encoding: UTF-8
 kramdown:
   input: GFM
-  
-encoding: utf-8
+  hard_wrap: false
+future: true
+jailed: false
+theme: jekyll-theme-primer
+gfm_quirks: paragraph_end
 
 theme: jekyll-theme-cayman
