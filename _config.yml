@@ -5,3 +5,5 @@ timezone: Asia/Shanghai
 theme: jekyll-theme-cayman
 
 show_downloads: false
+
+lang: zh-CN

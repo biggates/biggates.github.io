@@ -243,8 +243,8 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll
   jekyll-theme-cayman
+  tzinfo-data
 
 BUNDLED WITH
    1.16.5
