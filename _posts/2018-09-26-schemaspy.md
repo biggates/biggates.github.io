@@ -71,9 +71,44 @@ INFO  - View the results by opening .\generated\index.html
 
 生成的效果还是比较美观的，其中一些 ER 图基本上可以直接拿来做插图用。可以在 [schemaspy sample](http://schemaspy.org/sample/index.html) 查看示意。
 
+## 一些注意事项
+
+因为 `-dbHelp` 太弱鸡了，全部支持的 database type 和一些细节可以在 [这里](https://github.com/schemaspy/schemaspy/tree/master/src/main/resources/org/schemaspy/types) 研究。
+
+这里也整理常见的一些信息如下，请注意在 Maven Repository 中下载相应的 driver：
+
+### MySQL
+
+请注意较新版本的 driver 不支持较旧的 (5.1) 数据库。
+
+```
+schemaspy.t=mysql
+schemaspy.dp=mysql-connector-java-5.1.46.jar
+```
+
+### MS SQL Server
+
+MS SQL Server 的 JDBC driver 在 Maven Repo 中能够获取到的只有比较新的版本，请注意 `t` 需要指定 `mssql05` 或者 `mssql08`，按实际情况选择。
+
+
+```ini
+schemaspy.t=mssql05
+# 这个 driver 在 maven 上没有
+schemaspy.dp=sqljdbc4-3.0.jar
+```
+
+```ini
+schemaspy.t=mssql08
+schemaspy.dp=mssql-jdbc-6.2.2.jre8.jar
+```
+
 ## 提供更多 SchemaMeta 信息
 
+在某些情况下（比如数据库中没有 comment ，或者需要手动调整外键之类的时候），可能需要手动对结果做一些修改。
+
 按照 [SchemaMeta](https://schemaspy.readthedocs.io/en/latest/configuration.html#schemameta) 规定的格式编写 xml ，通过 `schemaspy.meta=文件名` 传入即可。
+
+当然了最好还是做好基础工作。
 
 ## 参考
 
