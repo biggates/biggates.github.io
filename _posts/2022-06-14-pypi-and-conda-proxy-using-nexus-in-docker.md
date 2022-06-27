@@ -14,6 +14,8 @@ layout: post
 
 在下面的例子中，将 nexus 安装到 `http://localhost:8082`。 为了省事就直接上 docker compose 了。
 
+为了避免使用 docker 自己的 volume 管理机制（经常导致 C 盘空间不足等），将 `./data` 目录挂载给 nexus。
+
 ```yaml
 version: "3.9"
 services:
@@ -41,14 +43,23 @@ services:
 * `pypi`
   * name: `pypi`
   * Remote Storage: `https://pypi.org/` 这个官网说明里就有
+  * Maximum component age: `-1`
 * `conda-forge`
   * name: `conda-forge`
   * Remote Storage: `https://conda.anaconda.org/conda-forge/` 这个着实找了挺久。
+  * Maximum component age: `-1`
 
 配置完成后，在 nexus 中查看的两个 repo 的地址分别为:
 
 * pypi : `http://localhost:8082/repository/pypi/`
 * conda : `http://localhost:8082/repository/conda-forge/main`
+
+注意：
+
+* Maximum component age 的默认值是 `1440` 分钟，即 1 天。
+  * 如果这里保持默认值的话，那么每天都会过期，而我们自己小规模使用的话是没有那么频繁的，这样就会导致会经常从远程拉包，失去了 nexus 代理的目的。
+  * 如果硬盘空间充足的话，建议将其设置为 `-1` 即永不过期。
+  * 如果用 nexus 来代理 snapshot 仓库的话（统一版本号的包内容会变），那么就要根据实际情况来设置了。
 
 ## pip
 
